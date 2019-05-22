@@ -168,7 +168,7 @@ function parse_git_dirty {
 	fi
 }
 
-export PS1="\n\e[38;5;216m┌──\e[m[\[\e[96m\]\w\[\e[m\]]─[\[\e[35m\]\u\[@\h\e[m\]]─[\e[34m\t \d\e[m]\[\e[33m\]\`parse_git_branch\`\[\e[m\]\n\e[38;5;216m└────►\e[m\\e[38;5;226m\$\e[m "
+export PS1="\n\e[38;5;216m┌──\e[m[\[\e[96m\]\w\[\e[m\]]─[\[\e[38;5;156m\]\u\[@\h\e[m\]]─[\e[34m\t \d\e[m]\[\e[33m\]\`parse_git_branch\`\[\e[m\]\n\e[38;5;216m└────►\e[m\\e[38;5;226m\$\e[m "
 
 alias c='clear'
 if [ $UID -ne 0 ]; then
