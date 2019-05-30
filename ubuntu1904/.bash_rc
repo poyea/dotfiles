@@ -1,7 +1,7 @@
 # ~/.bashrc: executed by bash(1) for non-login shells.
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
-
+TZ='Asia/Hong_Kong'; export TZ
 # If not running interactively, don't do anything
 case $- in
     *i*) ;;
@@ -168,7 +168,7 @@ function parse_git_dirty {
 	fi
 }
 
-export PS1="\n\e[38;5;216m╭──\e[m[\[\e[96m\]\w\[\e[m\]]─[\[\e[38;5;156m\]\u\[@\h\e[m\]]─[\e[34m\t \d\e[m]\[\e[33m\]\`parse_git_branch\`\[\e[m\]\n\e[38;5;216m╰────►\e[m\\e[38;5;226m\$\e[m "
+export PS1="\n\[\e[38;5;216m\]╭──\[\e[m\][\[\e[96m\]\w\[\e[m\]]─[\[\e[38;5;156m\]\u@\h\[\e[m\]]─[\[\e[34m\]\t \d\[\e[m\]]\[\e[33m\]\`parse_git_branch\`\[\e[m\]\n\[\e[38;5;216m\]╰────►\[\e[m\\e[38;5;226m\]\$\[\e[m\] "
 
 alias c='clear'
 if [ $UID -ne 0 ]; then
@@ -181,12 +181,13 @@ alias ..='cd ..'
 alias ...='cd ../../../'
 alias ....='cd ../../../../'
 alias mkdir='mkdir -pv'
+alias reloadapache='sudo systemctl reload apache2'
 function md
 {
   command mkdir -v $1 && cd $1
 }
 alias ports='netstat -tulanp'
 alias rm='rm -I'
-alias mv='mv -i'
-alias cp='cp -i'
+#alias mv='mv -i'
+#alias cp='cp -i'
 alias ln='ln -i'
