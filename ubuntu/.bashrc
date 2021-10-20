@@ -197,6 +197,31 @@ cdf()
 		builtin cd "$(dirname $1)"
 	fi
 }
+add_path()
+{
+    for ARG in "$@"
+    do
+        if [ -d "$ARG" ]
+        then
+            if [[ ":$PATH:" != *":$ARG:"* ]]
+            then
+                if ARGA=$(readlink -f "$ARG")           #notice me
+                then
+                    if [[ ":$PATH:" != *":$ARGA:"* ]]
+                    then
+                        PATH="${PATH:+"$PATH:"}$ARGA"
+                    fi
+                else
+                    PATH="${PATH:+"$PATH:"}$ARG"
+                fi
+            fi
+        else
+            printf "path_add - ERROR: %s is not a directory.\n" "$ARG" >&2
+        fi
+    done
+}
 targz() { tar -zcvf $1.tar.gz $1; }
 untargz() { tar -zxvf $1; }
 backup() { cp -- "$1"{,.bak}; }
+
+test -r ~/.bashrc.local && source ~/.bashrc.local
