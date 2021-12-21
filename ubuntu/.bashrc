@@ -107,8 +107,12 @@ if ! shopt -oq posix; then
 fi
 
 # get current branch in git repo
+git_current_branch() {
+        echo `git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/'`
+}
+
 parse_git_branch() {
-	BRANCH=`git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/'`
+	BRANCH=`git_current_branch`
 	if [ ! "${BRANCH}" == "" ]
 	then
 		OUT="─(${BRANCH})"
