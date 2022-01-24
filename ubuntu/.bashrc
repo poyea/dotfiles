@@ -106,9 +106,14 @@ if ! shopt -oq posix; then
 	fi
 fi
 
+# get last commit hash in git repo
+git_last_hash() {
+	echo `git rev-parse HEAD 2> /dev/null`
+}
+
 # get current branch in git repo
 git_current_branch() {
-        echo `git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/'`
+	echo `git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/'`
 }
 
 parse_git_branch() {
@@ -203,29 +208,30 @@ cdf()
 }
 add_path()
 {
-    for ARG in "$@"
-    do
-        if [ -d "$ARG" ]
-        then
-            if [[ ":$PATH:" != *":$ARG:"* ]]
-            then
-                if ARGA=$(readlink -f "$ARG")           #notice me
-                then
-                    if [[ ":$PATH:" != *":$ARGA:"* ]]
-                    then
-                        PATH="${PATH:+"$PATH:"}$ARGA"
-                    fi
-                else
-                    PATH="${PATH:+"$PATH:"}$ARG"
-                fi
-            fi
-        else
-            printf "path_add - ERROR: %s is not a directory.\n" "$ARG" >&2
-        fi
-    done
+	for ARG in "$@"
+	do
+		if [ -d "$ARG" ]
+		then
+			if [[ ":$PATH:" != *":$ARG:"* ]]
+			then
+				if ARGA=$(readlink -f "$ARG")			# notice me
+				then
+					if [[ ":$PATH:" != *":$ARGA:"* ]]
+					then
+						PATH="${PATH:+"$PATH:"}$ARGA"
+					fi
+				else
+					PATH="${PATH:+"$PATH:"}$ARG"
+				fi
+			fi
+		else
+			printf "path_add - ERROR: %s is not a directory.\n" "$ARG" >&2
+		fi
+	done
 }
 targz() { tar -zcvf $1.tar.gz $1; }
 untargz() { tar -zxvf $1; }
 backup() { cp -- "$1"{,.bak}; }
 
+# SUPER-CLASSIFIED custom .bashrc.local goes here
 test -r ~/.bashrc.local && source ~/.bashrc.local
