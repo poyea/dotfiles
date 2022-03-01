@@ -1,0 +1,20 @@
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../../'
+alias c='clear' # ^L
+alias cp='cp -i'
+alias hg='history | grep'
+alias l='ls --color=always' 
+alias ll='ls -la --color=always'
+alias ln='ln -i'
+alias mkdir='mkdir -pv'
+alias mv='mv -i'
+alias myip='curl http://ifconfig.me/ip'
+alias ports='netstat -tulanp'
+alias reboot='sudo reboot'
+alias reload='. $HOME/.bashrc'
+alias reloadapache='sudo systemctl reload apache2'
+alias rm='rm -I'
+if [ $UID -ne 0 ]; then
+	alias update='sudo apt update && sudo apt upgrade'
+fi
