@@ -100,8 +100,8 @@ if [ -f ~/.bash_aliases ]; then
 	source ~/.bash_aliases
 fi
 
-if [ -f ~/.funcs.sh ]; then
-	source ~/.funcs.sh
+if [ -f ~/.bash_funcs.sh ]; then
+	source ~/.bash_funcs.sh
 fi
 
 # SUPER-CLASSIFIED custom .bashrc.local goes here
