@@ -1,10 +1,13 @@
 #!/bin/bash
 
+DIR=$( cd $(dirname $0) ; pwd )
+
+
 setup_ubuntu()
 {
-    ln -sf ./ubuntu/.bashrc .bashrc
-    ln -sf ./ubuntu/.tmux.conf .tmux.conf
-    ln -sf ./ubuntu/.vimrc .vimrc
+    ln -sf $DIR/ubuntu/.bashrc ~/.bashrc
+    ln -sf $DIR/ubuntu/.tmux.conf ~/.tmux.conf
+    ln -sf $DIR/ubuntu/.vimrc ~/.vimrc
 }
 
 select i in ubuntu exit
