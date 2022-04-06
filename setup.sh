@@ -2,6 +2,10 @@
 
 DIR=$( cd $(dirname $0) ; pwd )
 
+source_cfg()
+{
+    source ~/.bashrc
+}
 
 setup_ubuntu()
 {
@@ -9,8 +13,11 @@ setup_ubuntu()
     ln -sf $DIR/ubuntu/.bash_aliases ~/.bash_aliases
     ln -sf $DIR/ubuntu/.bashrc.local ~/.bashrc.local
     ln -sf $DIR/ubuntu/.funcs.sh ~/.funcs.sh
+
     ln -sf $DIR/ubuntu/.tmux.conf ~/.tmux.conf
     ln -sf $DIR/ubuntu/.vimrc ~/.vimrc
+
+    source_cfg
 }
 
 select i in ubuntu exit
