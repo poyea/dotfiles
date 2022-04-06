@@ -105,6 +105,8 @@ if [ -f ~/.funcs.sh ]; then
 fi
 
 # SUPER-CLASSIFIED custom .bashrc.local goes here
-test -r ~/.bashrc.local && source ~/.bashrc.local
+if [ -f ~/.bashrc.local ]; then
+	source ~/.bashrc.local
+fi
 
 :
