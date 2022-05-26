@@ -19,6 +19,9 @@ shopt -s histappend
 HISTSIZE='INFINITY'
 HISTFILESIZE='ANDBEYOND'
 
+# add to bash history
+PROMPT_COMMAND="history -a;$PROMPT_COMMAND"
+
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
 shopt -s checkwinsize

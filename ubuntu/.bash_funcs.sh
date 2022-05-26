@@ -55,23 +55,6 @@ git_current_branch()
 	echo `git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/'`
 }
 
-parse_git_branch()
-{
-	BRANCH=`git_current_branch`
-	if [ ! "${BRANCH}" == "" ]
-	then
-		OUT="─(${BRANCH})"
-		STAT=`parse_git_dirty`
-		if [ ! "${STAT}" == "" ]
-		then
-			OUT="${OUT}─[${STAT}]"
-		fi
-		echo "${OUT}"
-	else
-		echo ""
-	fi
-}
-
 # get current status of git repo
 parse_git_dirty()
 {
@@ -103,6 +86,23 @@ parse_git_dirty()
 	fi
 	if [ ! "${bits}" == "" ]; then
 		echo "${bits}"
+	else
+		echo ""
+	fi
+}
+
+parse_git_branch()
+{
+	BRANCH=`git_current_branch`
+	if [ ! "${BRANCH}" == "" ]
+	then
+		OUT="─(${BRANCH})"
+		STAT=`parse_git_dirty`
+		if [ ! "${STAT}" == "" ]
+		then
+			OUT="${OUT}─[${STAT}]"
+		fi
+		echo "${OUT}"
 	else
 		echo ""
 	fi
