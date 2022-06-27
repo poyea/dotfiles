@@ -20,7 +20,7 @@ HISTSIZE='INFINITY'
 HISTFILESIZE='ANDBEYOND'
 
 # add to bash history
-PROMPT_COMMAND="history -a;$PROMPT_COMMAND"
+PROMPT_COMMAND="history -a;history -n;$PROMPT_COMMAND"
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
