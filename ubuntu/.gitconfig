@@ -1,0 +1,13 @@
+[alias]
+    find = log --oneline --name-status -i --grep
+    lol = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=human-local
+    lola = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=human-local --all
+
+    what = log origin/master@{1}..origin/master@{0}
+
+    review = diff master...HEAD
+[color]
+    branch = auto
+    diff = auto
+    interactive = auto
+    status = auto
