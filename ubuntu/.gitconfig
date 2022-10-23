@@ -6,6 +6,11 @@
     what = log origin/master@{1}..origin/master@{0}
 
     review = diff master...HEAD
+    files-changed = diff-tree --no-commit-id --name-status -r
+
+    diff-words = diff --color-words='[^[:space:]]|([[:alnum:]]|UTF_8_GUARD)+'
+
+    ls-alias = "!git config --get-regexp '^alias.'"
 [color]
     branch = auto
     diff = auto
