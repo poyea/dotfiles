@@ -11,6 +11,7 @@
     diff-words = diff --color-words='[^[:space:]]|([[:alnum:]]|UTF_8_GUARD)+'
 
     ls-alias = "!git config --get-regexp '^alias.'"
+    all = "!all() { ls | xargs -P10 -I{} git -C {} $1; }; all"
 [color]
     branch = auto
     diff = auto
