@@ -13,6 +13,7 @@
 
     ls-alias = "!git config --get-regexp '^alias.'"
     all = "!all() { ls | xargs -P10 -I{} git -C {} $1; }; all"
+    branch-sorted = for-each-ref --sort=committerdate refs/heads/ --format='%(committerdate:iso8601)%09%(refname:short)'
 [color]
     branch = auto
     diff = auto
