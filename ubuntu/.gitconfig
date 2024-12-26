@@ -16,7 +16,7 @@
 
     branch-sorted = for-each-ref --sort=committerdate refs/heads/ --format='%(committerdate:iso8601)%09%(refname:short)'
 
-    pab = "!f() { git checkout $1 && git pull --rebase --autostash && git checkout - && git rebase mainline --autostash; }; f"
+    pab = "!f() { git checkout $1 && git pull --rebase --autostash && git checkout - && git rebase $1 --autostash; }; f"
 [color]
     branch = auto
     diff = auto
