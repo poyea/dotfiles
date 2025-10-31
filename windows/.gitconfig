@@ -1,0 +1,30 @@
+[alias]
+    find = log --oneline --name-status -i --grep
+    lol = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=human-local
+    lola = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=human-local --all
+	dag = log --graph --pretty=format:'%C(yellow)%h%C(reset) %C(blue)\"%an\" <%ae>%C(reset) %C(magenta)%cr%C(reset)%C(auto)%d%C(reset)%n%s' --date-order --all
+
+    what = log origin/master@{1}..origin/master@{0}
+
+    review = diff master...HEAD
+    files-changed = diff-tree --no-commit-id --name-status -r
+
+    diff-words = diff --color-words='[^[:space:]]|([[:alnum:]]|UTF_8_GUARD)+'
+
+    ls-alias = "!git config --get-regexp '^alias.'"
+    all = "!all() { ls | xargs -P10 -I{} git -C {} $1; }; all"
+
+    branch-sorted = for-each-ref --sort=committerdate refs/heads/ --format='%(committerdate:iso8601)%09%(refname:short)'
+
+    pab = "!f() { git checkout $1 && git pull --rebase --autostash && git checkout - && git rebase $1 --autostash; }; f"
+    pabs = "!f() { git stash && git checkout $1 && git pull --rebase --autostash && git checkout - && git rebase $1 --autostash && git stash pop; }; f"
+[color]
+    branch = auto
+    diff = auto
+    interactive = auto
+    status = auto
+[core]
+    excludesFile = ~/.gitignore
+    autocrlf = true
+    symlinks = false
+    fileMode = false
