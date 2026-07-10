@@ -12,7 +12,7 @@
     diff-words = diff --color-words='[^[:space:]]|([[:alnum:]]|UTF_8_GUARD)+'
 
     ls-alias = "!git config --get-regexp '^alias.'"
-	all = "!f() { for d in */; do [ -e \"$d/.git\" ] && printf '%s\\0' \"$d\"; done | xargs -0 -P10 -I{} sh -c 'echo \"== {} ==\"; git -C {} \"$@\"' _ \"$@\"; }; f"
+    all = "!f() { for d in */; do [ -e \"$d/.git\" ] && printf '%s\\0' \"$d\"; done | xargs -0 -P10 -I{} sh -c 'echo \"== {} ==\"; git -C {} \"$@\"' _ \"$@\"; }; f"
 
     branch-sorted = for-each-ref --sort=committerdate refs/heads/ --format='%(committerdate:iso8601)%09%(refname:short)'
 
